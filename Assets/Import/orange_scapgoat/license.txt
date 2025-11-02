@@ -1,0 +1,11 @@
+Model Information:
+* title:	orange scapgoat
+* source:	https://sketchfab.com/3d-models/orange-scapgoat-af6efaab20224d8787890b7cc2cfd77a
+* author:	medothegeek (https://sketchfab.com/medothegeek)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "orange scapgoat" (https://sketchfab.com/3d-models/orange-scapgoat-af6efaab20224d8787890b7cc2cfd77a) by medothegeek (https://sketchfab.com/medothegeek) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,8 @@
+Model Information:
+* title:	Winged Kuriboh
+* source:	https://sketchfab.com/3d-models/winged-kuriboh-26296c06c03a4752bb98c22514de6cff
+* author:	Tigerar1 (https://sketchfab.com/allanromanreyes)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
