@@ -27,10 +27,7 @@ Les monstres changent de variation dépendamment de l'heure.
 ##  Démonstration vidéo
 Une démonstration du projet est disponible :  
 
-[https://youtu.be/_2vZOYQFl3M](https://youtube.com/shorts/6h1vB7Gf09M)
+[Vidéo démo sur Youtube](https://youtube.com/shorts/xfeG-2gzKDY)
 
 
-https://github.com/user-attachments/assets/f62b2768-0111-4247-b8dc-9503daf02d16
-
-
-
+https://github.com/user-attachments/assets/9d27cbf4-3b51-4118-b917-19e7b0feee66
