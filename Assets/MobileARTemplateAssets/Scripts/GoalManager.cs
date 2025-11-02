@@ -54,6 +54,11 @@ namespace UnityEngine.XR.Templates.AR
             FindSurfaces,
 
             /// <summary>
+            /// Show image recognition hint
+            /// </summary>
+            ImageRecognition,
+
+            /// <summary>
             /// Tap a surface to spawn an object
             /// </summary>
             TapSurface,
@@ -66,7 +71,12 @@ namespace UnityEngine.XR.Templates.AR
             /// <summary>
             /// Show scale and rotate hints
             /// </summary>
-            Scale
+            Scale,
+
+            /// <summary>
+            /// Show dynamic content
+            /// </summary>
+            DynamicContent
         }
 
         /// <summary>
@@ -183,7 +193,7 @@ namespace UnityEngine.XR.Templates.AR
 
         void Update()
         {
-            if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame && !m_AllGoalsFinished && (m_CurrentGoal.CurrentGoal == OnboardingGoals.FindSurfaces || m_CurrentGoal.CurrentGoal == OnboardingGoals.Hints || m_CurrentGoal.CurrentGoal == OnboardingGoals.Scale))
+            if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame && !m_AllGoalsFinished && (m_CurrentGoal.CurrentGoal == OnboardingGoals.FindSurfaces || m_CurrentGoal.CurrentGoal == OnboardingGoals.Hints || m_CurrentGoal.CurrentGoal == OnboardingGoals.Scale || m_CurrentGoal.CurrentGoal == OnboardingGoals.ImageRecognition || m_CurrentGoal.CurrentGoal == OnboardingGoals.DynamicContent))
             {
                 if (m_CurrentCoroutine != null)
                 {
@@ -226,9 +236,17 @@ namespace UnityEngine.XR.Templates.AR
             {
                 m_CurrentCoroutine = StartCoroutine(WaitUntilNextCard(6f));
             }
+            else if (m_CurrentGoal.CurrentGoal == OnboardingGoals.ImageRecognition)
+            {
+                m_CurrentCoroutine = StartCoroutine(WaitUntilNextCard(5f));
+            }
             else if (m_CurrentGoal.CurrentGoal == OnboardingGoals.Scale)
             {
                 m_CurrentCoroutine = StartCoroutine(WaitUntilNextCard(8f));
+            }
+            else if (m_CurrentGoal.CurrentGoal == OnboardingGoals.DynamicContent)
+            {
+                m_CurrentCoroutine = StartCoroutine(WaitUntilNextCard(5f));
             }
             else if (m_CurrentGoal.CurrentGoal == OnboardingGoals.TapSurface)
             {
@@ -295,11 +313,16 @@ namespace UnityEngine.XR.Templates.AR
             var translateHintsGoal = new Goal(OnboardingGoals.Hints);
             var scaleHintsGoal = new Goal(OnboardingGoals.Scale);
             var rotateHintsGoal = new Goal(OnboardingGoals.Hints);
+            var imageRecognitionGoal = new Goal(OnboardingGoals.ImageRecognition);
+            var dynamicContentGoal = new Goal(OnboardingGoals.DynamicContent);
 
+
+            m_OnboardingGoals.Enqueue(imageRecognitionGoal);
             m_OnboardingGoals.Enqueue(tapSurfaceGoal);
             m_OnboardingGoals.Enqueue(translateHintsGoal);
             m_OnboardingGoals.Enqueue(scaleHintsGoal);
             m_OnboardingGoals.Enqueue(rotateHintsGoal);
+            m_OnboardingGoals.Enqueue(dynamicContentGoal);
 
             m_CurrentGoal = m_OnboardingGoals.Dequeue();
             m_AllGoalsFinished = false;
@@ -309,6 +332,7 @@ namespace UnityEngine.XR.Templates.AR
             m_OptionsButton.SetActive(true);
             m_CreateButton.SetActive(true);
             m_MenuManager.enabled = true;
+
 
             for (int i = startingStep; i < m_StepList.Count; i++)
             {
